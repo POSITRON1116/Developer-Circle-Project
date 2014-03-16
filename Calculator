@@ -1,0 +1,96 @@
+import java.util.Scanner;
+
+class Calculater_ProVersion {
+	static Scanner s;
+	public static void main (String[] args) {
+		Calculater_ProVersionTest cal = new Calculater_ProVersionTest ();
+		s = new Scanner (System.in);
+		System.out.println ("================계산기================");
+		System.out.println ("=============ByPOSITRON=============");
+		System.out.println ("============Version1.1.0============");
+		System.out.println ("================사용법================");
+		System.out.println ("a칸에 숫자, b칸에 연산자, c칸에 숫자를 적으십시오");
+		System.out.println ("==시작하려면 아무키나누르고 Enter를 누르십시오==");
+		System.out.println ("========종료하려면 x키를 누르싶시오.========");
+		String x = s.next();
+		 do {
+			 if (x.equalsIgnoreCase("x")) {
+				 break;
+			 }
+			 System.out.println ("==========아니면 아무키나 누르싶시오=========");
+			 System.out.println ("========이차방정식은 q키를 누르싶시오.=======");
+		String w = s.next();
+		if (w.equalsIgnoreCase("q")) {
+			System.out.println("quadra ic_equation");
+			System.out.println("x^2:");
+			double A = s.nextDouble();
+			System.out.println("x:");
+			double B = s.nextDouble();
+			System.out.println("constant:");
+			double C = s.nextDouble();
+			cal.quadratic_equation_tests (A,B,C);}
+		System.out.println ("계속하려면 1를 누르십시오.");
+		System.out.println ("종료하려면 2를 누르십시오.");
+		int f = s.nextInt();
+		if (f == 2) {
+			break;
+		}
+		 System.out.println ("이용해주셔서 감사합니다.");
+		System.out.println ("===================================");
+		System.out.println ("=더하기는 +, 빼기는 -, 곱하기는 * 나누기는 /=");
+		System.out.println ("=========제곱은 ^ 이차방정식은 q=========");
+		System.out.println ("===================================");
+		double a = s.nextDouble();
+		String b = s.next();
+		double c = s.nextDouble();
+		if (b.equalsIgnoreCase("+")) {
+			double result = cal.add(a, c);
+			System.out.println (result);
+		} else if (b.equalsIgnoreCase("-")) {
+			double result = cal.subtract(a, c);
+			System.out.println (result);
+		} else if (b.equalsIgnoreCase("*")) {
+			double result = cal.multiply(a, c);
+			System.out.println (result);
+		} else if (b.equalsIgnoreCase("/")) {
+			double result = cal.divide(a, c);
+			System.out.println (result);
+		} else if (b.equalsIgnoreCase("^")) {
+			double result = cal.square(a, c);
+			System.out.println (result);
+		}else {
+		}
+		System.out.println ("계속하려면 1를 누르십시오.");
+		System.out.println ("종료하려면 2를 누르십시오.");
+		int d = s.nextInt();
+		if (d == 2) {
+			break;
+		} else {
+		}
+	} while (!x.equalsIgnoreCase("x"));
+		 System.out.println ("이용해주셔서 감사합니다."); 
+	}
+}
+class Calculater_ProVersionTest {
+	double add (double a, double b) {
+		return a + b;
+	}
+	double subtract (double a, double b) {
+		return a - b;
+	}
+	double multiply (double a, double b) {
+		return a * b;
+	}	
+	double divide (double a, double b) {
+		return a / b;
+	}
+	double square (double a, double b) {
+		return Math.pow(a, b);
+	}
+	double quadratic_equation_tests (double a, double b,double c) {
+		double d = Math.sqrt(Math.pow(b,2)-4*a*c);
+		System.out.println ((-b+d)/2*a);
+		System.out.println ((-b-d)/2*a);
+		return d-2*a;
+	}
+}
